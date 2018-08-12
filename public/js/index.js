@@ -13,7 +13,14 @@ socket.on('newMessage', function (message) {
   $('#messages').append(li);
 });
 
-
+socket.on('newLocationMessage', function (message) {
+    console.log('newMessage', message);
+    console.log(message.text);
+    var li = $(`<li><a target='_blank' href=${message.url}>My current Location<a></li>`);
+    
+    $('#messages').append(li);
+  });
+  
 socket.on("disconnect", function(){
     console.log("Disconnected from server");
 });

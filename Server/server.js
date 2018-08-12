@@ -27,7 +27,7 @@ io.on('connection',(socket)=>{
         // });
      });
      socket.on('createLocationMessage',function(coords){
-         io.emit('newMessage', generateMessage('Raj', `${coords.latitude}, ${coords.longitude}`));
+         io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
      });
     socket.on('disconnect', ()=>{
         console.log('User was disconnected');
