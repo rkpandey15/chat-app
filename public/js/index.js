@@ -42,10 +42,9 @@ sendlocation.on('click', function(){
     }
     navigator.geolocation.getCurrentPosition(
         function(position){
-            socket.emit('createLocationMessage',{
-            
-                latitude:position.coords.latitude,
-                longitude:position.coords.longitude
+            socket.emit('createMessage',{from:'Admin',            
+                text:position.coords.latitude
+                
             });
         },
         function(){
