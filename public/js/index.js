@@ -15,9 +15,9 @@ socket.on('newMessage', function (message) {
 
 socket.on('newLocationMessage', function (message) {
     console.log('newMessage', message);
-    console.log(message.text);
-    var li = $(`<li><a target='_blank' href=${message.url}>My current Location</a></li>`);
-    
+    console.log(message.url);
+    // var li = $(`<li><a target='_blank' href=${message.url}>My current Location</a></li>`);
+    var li = $(`<li>${message.url}</li>`);
     $('#messages').append(li);
   });
   
@@ -43,6 +43,7 @@ sendlocation.on('click', function(){
     navigator.geolocation.getCurrentPosition(
         function(position){
             socket.emit('createLocationMessage',{
+            
                 latitude:position.coords.latitude,
                 longitude:position.coords.longitude
             });
