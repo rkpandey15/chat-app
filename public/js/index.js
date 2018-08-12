@@ -16,8 +16,8 @@ socket.on('newMessage', function (message) {
 socket.on('newLocationMessage', function (message) {
     console.log('newLocationMessage', message);
     console.log(message.from);
-    // var li = $(`<li><a target='_blank' href=${message.url}>My current Location</a></li>`);
-    var li = $(`<li>${message.from}</li>`);
+    var li = $(`<li><a target='_blank' href=${message.url}>My current Location</a></li>`);
+    //var li = $(`<li>${message.from}</li>`);
     $('#messages').append(li);
   });
   
